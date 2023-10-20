@@ -2,8 +2,8 @@
 Changelog for package pal_sea_arm_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.1 (2023-10-20)
+------------------
 * Fixing initial version
 * Merge branch 'add_packages' into 'main'
   Add pal_sea_arm_moveit_config packages
