@@ -1,0 +1,40 @@
+<launch>
+  <!-- By default we do not overwrite the URDF. Change the following to true to change the default behavior -->
+  <arg name="load_robot_description" default="false"/>
+
+  <!-- The name of the parameter under which the URDF is loaded -->
+  <arg name="robot_description" default="robot_description"/>
+
+  <!-- Selector for pal_sea_arm type -->
+  <arg name="end_effector"  default="pal-pro-gripper"/>
+  <arg name="ft_sensor"  default="false"/>
+  <arg name="file_suffix" value="$(eval (((end_effector if end_effector else 'no-ee') + 
+    ('_' +  ft_sensor if ft_sensor else ''))))"/>  
+  <!-- Load universal robot description format (URDF) -->
+  <include if="$(arg load_robot_description)" file="$(find pal_sea_arm_description)/robots/upload.launch">
+      <arg name="end_effector" value="$(arg end_effector)"/>
+      <arg name="ft_sensor" value="$(arg ft_sensor)"/>
+      <arg name="arm_model" default="pal-sea-arm-standalone"/>
+  </include>
+
+  <!-- The semantic description that corresponds to the URDF -->
+  <param if="$(eval end_effector != 'custom')" name="$(arg robot_description)_semantic" textfile="$(find pal_sea_arm_moveit_config)/config/srdf/pal_sea_arm_$(arg file_suffix).srdf" />
+  <param if="$(eval end_effector == 'custom')" name="$(arg robot_description)_semantic" textfile="$(find moveit_custom_config)/config/srdf/pal_sea_arm_custom.srdf" />
+
+  <!-- Load padding -->
+  <group ns="$(arg robot_description)_planning">
+    <rosparam command="load" file="$(find pal_sea_arm_moveit_config)/config/padding.yaml" />
+  </group>
+
+  <!-- Load updated joint limits (override information from URDF) -->
+  <group ns="$(arg robot_description)_planning">
+    <rosparam command="load" file="$(find pal_sea_arm_moveit_config)/config/joint_limits.yaml"/>
+    <rosparam command="load" file="$(find pal_sea_arm_moveit_config)/config/cartesian_limits.yaml"/>
+  </group>
+
+  <!-- Load default settings for kinematics; these settings are overridden by settings in a node's namespace -->
+  <group ns="$(arg robot_description)_kinematics">
+    <rosparam command="load" file="$(find pal_sea_arm_moveit_config)/config/kinematics.yaml"/>
+  </group>
+
+</launch>

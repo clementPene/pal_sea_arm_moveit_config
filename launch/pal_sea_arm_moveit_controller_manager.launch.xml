@@ -1,0 +1,8 @@
+<launch>
+  <!-- Define the controller manager plugin to use for trajectory execution -->
+  <param name="moveit_controller_manager" value="moveit_simple_controller_manager/MoveItSimpleControllerManager" />
+  <arg name="robot_suffix"  default=""/>
+  <!-- loads controller list to the param server -->
+  <rosparam unless="$(eval robot_suffix.startswith('custom'))" file="$(find pal_sea_arm_moveit_config)/config/controllers/controllers_$(arg robot_suffix).yaml"/>
+  <rosparam if="$(eval robot_suffix.startswith('custom'))" file="$(find pal_sea_arm_moveit_config)/config/controllers/controllers_custom.yaml"/>
+</launch>
