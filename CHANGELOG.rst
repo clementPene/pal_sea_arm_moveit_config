@@ -2,6 +2,14 @@
 Changelog for package pal_sea_arm_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'fix/ft_naming' into 'main'
+  Change arm_ft\_ to wrist_ft to match TIAGo
+  See merge request robots/pal_sea_arm_moveit_config!2
+* Change arm_ft\_ to wrist_ft to match TIAGo
+* Contributors: Jordan Palacios, thomaspeyrucain
+
 0.0.1 (2023-10-20)
 ------------------
 * Fixing initial version
