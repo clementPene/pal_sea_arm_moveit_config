@@ -2,8 +2,8 @@
 Changelog for package pal_sea_arm_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.0.0 (2024-01-29)
+------------------
 * Merge branch 'solve-depend' into 'humble-devel'
   fix depends
   See merge request robots/pal_sea_arm_moveit_config!5
