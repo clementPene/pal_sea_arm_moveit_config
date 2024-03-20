@@ -38,12 +38,6 @@ class LaunchArguments(LaunchArgumentsBase):
         choices=['pal-sea-arm-standalone', 'tiago-pro', 'tiago-sea', 'tiago-sea-dual'],
         description='The arm model')
 
-    use_sensor_manager_arg: DeclareLaunchArgument = DeclareLaunchArgument(
-        name='use_sensor_manager',
-        default_value='False',
-        choices=['True', 'False'],
-        description='Use moveit_sensor_manager for octomap')
-
 
 def declare_actions(launch_description: LaunchDescription, launch_args: LaunchArguments):
 
@@ -55,7 +49,6 @@ def start_move_group(context, *args, **kwargs):
 
     end_effector = read_launch_argument('end_effector', context)
     ft_sensor = read_launch_argument('ft_sensor', context)
-    use_sensor_manager = read_launch_argument('use_sensor_manager', context)
 
     hw_suffix = get_pal_sea_arm_hw_suffix(
         end_effector=end_effector,
@@ -86,11 +79,6 @@ def start_move_group(context, *args, **kwargs):
         .planning_scene_monitor(planning_scene_monitor_parameters)
         .pilz_cartesian_limits(file_path=os.path.join('config', 'pilz_cartesian_limits.yaml'))
     )
-
-    if use_sensor_manager:
-        # moveit_sensors path
-        moveit_sensors_path = 'config/sensors_3d.yaml'
-        moveit_config.sensors_3d(moveit_sensors_path)
 
     moveit_config.to_moveit_configs()
 
