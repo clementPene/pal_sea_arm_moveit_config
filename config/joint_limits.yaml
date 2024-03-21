@@ -34,20 +34,4 @@ joint_limits:
     max_velocity: 4.58
     has_acceleration_limits: false
     max_acceleration: 0
-  # pal-gripper
-  gripper_left_finger_joint:
-    has_velocity_limits: true
-    max_velocity: 0.01
-    has_acceleration_limits: false
-    max_acceleration: 0
-  gripper_right_finger_joint:
-    has_velocity_limits: true
-    max_velocity: 0.01
-    has_acceleration_limits: false
-    max_acceleration: 0
-  # schunk-wsg
-  gripper_finger_joint:
-    has_velocity_limits: true
-    max_velocity: 0.01
-    has_acceleration_limits: false
-    max_acceleration: 0
+
