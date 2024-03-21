@@ -38,12 +38,6 @@ class LaunchArguments(LaunchArgumentsBase):
         choices=['pal-sea-arm-standalone', 'tiago-pro', 'tiago-sea', 'tiago-sea-dual'],
         description='The arm model')
 
-    use_sensor_manager_arg: DeclareLaunchArgument = DeclareLaunchArgument(
-        name='use_sensor_manager',
-        default_value='False',
-        choices=['True', 'False'],
-        description='Use moveit_sensor_manager for octomap')
-
 
 def declare_actions(launch_description: LaunchDescription, launch_args: LaunchArguments):
 
