@@ -2,8 +2,8 @@
 Changelog for package pal_sea_arm_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.0.1 (2024-03-22)
+------------------
 * Merge branch 'dtk/fix/restructure-launch' into 'humble-devel'
   Dtk/fix/restructure launch
   See merge request robots/pal_sea_arm_moveit_config!6
