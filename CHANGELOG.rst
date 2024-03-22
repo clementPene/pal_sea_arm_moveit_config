@@ -2,6 +2,20 @@
 Changelog for package pal_sea_arm_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'dtk/fix/restructure-launch' into 'humble-devel'
+  Dtk/fix/restructure launch
+  See merge request robots/pal_sea_arm_moveit_config!6
+* remove sensor_manager from moveit_rviz
+* Update copyright year
+* Add missing linter tests
+* Remove unused sensor manager
+* Add missing chomp dependency
+* updated config files
+* Restructure launch files
+* Contributors: David ter Kuile, Noel Jimenez, davidterkuile
+
 1.0.0 (2024-01-29)
 ------------------
 * Merge branch 'solve-depend' into 'humble-devel'
