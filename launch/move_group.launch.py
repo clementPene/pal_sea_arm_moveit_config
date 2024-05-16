@@ -28,6 +28,7 @@ from launch_pal.robot_arguments import TiagoSEAArgs
 from dataclasses import dataclass
 from ament_index_python.packages import get_package_share_directory
 
+
 @dataclass(frozen=True)
 class LaunchArguments(LaunchArgumentsBase):
     wrist_model: DeclareLaunchArgument = TiagoSEAArgs.wrist_model
@@ -71,7 +72,6 @@ def start_move_group(context, *args, **kwargs):
         'end_effector': read_launch_argument('end_effector', context),
         'ft_sensor': read_launch_argument('ft_sensor', context)
     }
-
 
     # Trajectory Execution Functionality
     moveit_simple_controllers_path = (
