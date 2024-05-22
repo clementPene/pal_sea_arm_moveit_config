@@ -13,6 +13,7 @@
 # limitations under the License.
 
 import os
+from pathlib import Path
 
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, OpaqueFunction
@@ -25,6 +26,7 @@ from launch_pal.arg_utils import LaunchArgumentsBase, CommonArgs
 from pal_sea_arm_description.pal_sea_arm_utils import get_pal_sea_arm_hw_suffix
 from launch_pal.robot_arguments import TiagoSEAArgs
 from dataclasses import dataclass
+from ament_index_python.packages import get_package_share_directory
 
 
 @dataclass(frozen=True)
@@ -33,8 +35,8 @@ class LaunchArguments(LaunchArgumentsBase):
     end_effector: DeclareLaunchArgument = TiagoSEAArgs.end_effector
     ft_sensor: DeclareLaunchArgument = TiagoSEAArgs.ft_sensor
     use_sim_time: DeclareLaunchArgument = CommonArgs.use_sim_time
-    arm_model: DeclareLaunchArgument = DeclareLaunchArgument(
-        'arm_model', default_value='pal-sea-arm-standalone',
+    arm_type: DeclareLaunchArgument = DeclareLaunchArgument(
+        'arm_type', default_value='pal-sea-arm-standalone',
         choices=['pal-sea-arm-standalone', 'tiago-pro', 'tiago-sea', 'tiago-sea-dual'],
         description='The arm model')
 
@@ -50,12 +52,26 @@ def start_move_group(context, *args, **kwargs):
     end_effector = read_launch_argument('end_effector', context)
     ft_sensor = read_launch_argument('ft_sensor', context)
 
+    if end_effector == "no-end-effector":
+        end_effector = "no-ee"
+
     hw_suffix = get_pal_sea_arm_hw_suffix(
         end_effector=end_effector,
         ft_sensor=ft_sensor
     )
+    srdf_file_path = Path(
+        os.path.join(
+            get_package_share_directory("pal_sea_arm_moveit_config"),
+            "config", "srdf",
+            "pal_sea_arm.srdf.xacro",
+        )
+    )
 
-    robot_description_semantic = (f'config/srdf/pal_sea_arm{hw_suffix}.srdf')
+    srdf_input_args = {
+        'arm_type': read_launch_argument('arm_type', context),
+        'end_effector': read_launch_argument('end_effector', context),
+        'ft_sensor': read_launch_argument('ft_sensor', context)
+    }
 
     # Trajectory Execution Functionality
     moveit_simple_controllers_path = (
@@ -71,7 +87,7 @@ def start_move_group(context, *args, **kwargs):
     # The robot description is read from the topic /robot_description if the parameter is empty
     moveit_config = (
         MoveItConfigsBuilder('pal_sea_arm')
-        .robot_description_semantic(file_path=robot_description_semantic)
+        .robot_description_semantic(file_path=srdf_file_path, mappings=srdf_input_args)
         .robot_description_kinematics(file_path=os.path.join('config', 'kinematics_kdl.yaml'))
         .trajectory_execution(moveit_simple_controllers_path)
         .joint_limits(file_path=os.path.join('config', 'joint_limits.yaml'))
