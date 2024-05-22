@@ -2,6 +2,16 @@
 Changelog for package pal_sea_arm_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Merge branch 'feat/auto-generated_srdf_files' into 'humble-devel'
+  Feat/auto generated srdf files
+  See merge request robots/pal_sea_arm_moveit_config!7
+* linters
+* create srdf on the go
+* regenerate srdf disable collision files
+* Contributors: Aina Irisarri, davidterkuile
+
 1.0.1 (2024-03-22)
 ------------------
 * Merge branch 'dtk/fix/restructure-launch' into 'humble-devel'
