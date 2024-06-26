@@ -22,18 +22,19 @@ from launch_pal.arg_utils import read_launch_argument
 from launch_ros.actions import Node
 
 from moveit_configs_utils import MoveItConfigsBuilder
-from launch_pal.arg_utils import LaunchArgumentsBase, CommonArgs
+from launch_pal.arg_utils import LaunchArgumentsBase
+from launch_pal.robot_arguments import CommonArgs
 from pal_sea_arm_description.pal_sea_arm_utils import get_pal_sea_arm_hw_suffix
-from launch_pal.robot_arguments import TiagoSEAArgs
+from pal_sea_arm_description.launch_arguments import SEAArmArgs
 from dataclasses import dataclass
 from ament_index_python.packages import get_package_share_directory
 
 
 @dataclass(frozen=True)
 class LaunchArguments(LaunchArgumentsBase):
-    wrist_model: DeclareLaunchArgument = TiagoSEAArgs.wrist_model
-    end_effector: DeclareLaunchArgument = TiagoSEAArgs.end_effector
-    ft_sensor: DeclareLaunchArgument = TiagoSEAArgs.ft_sensor
+    wrist_model: DeclareLaunchArgument = SEAArmArgs.wrist_model
+    end_effector: DeclareLaunchArgument = SEAArmArgs.end_effector
+    ft_sensor: DeclareLaunchArgument = SEAArmArgs.ft_sensor
     use_sim_time: DeclareLaunchArgument = CommonArgs.use_sim_time
     arm_type: DeclareLaunchArgument = DeclareLaunchArgument(
         'arm_type', default_value='pal-sea-arm-standalone',
