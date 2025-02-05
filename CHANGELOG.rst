@@ -2,6 +2,11 @@
 Changelog for package pal_sea_arm_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Set robot_description_timeout to 60 seconds
+* Contributors: Noel Jimenez
+
 1.0.3 (2024-06-26)
 ------------------
 * Merge branch 'dtk/move-robot-args' into 'humble-devel'
