@@ -4,6 +4,8 @@
     
     <xacro:macro name="define_end_effector" params="arm name">
         <group name="gripper_${side}">
+              <joint name="gripper_${side}_coupler_joint"/>
+              <joint name="gripper_${side}_tc_joint"/>
               <joint name="gripper_${side}_palm_joint"/>
               <joint name="gripper_${side}_finger_1_rotatory_joint"/>
               <joint name="gripper_${side}_finger_1_flexor_1_joint"/>
