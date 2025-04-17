@@ -2,8 +2,8 @@
 Changelog for package pal_sea_arm_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.0.5 (2025-04-17)
+------------------
 * Add coupler link on disable collision for allegro
 * Add srdf for allegro
 * Contributors: Aina
