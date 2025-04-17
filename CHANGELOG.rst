@@ -2,6 +2,12 @@
 Changelog for package pal_sea_arm_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Add coupler link on disable collision for allegro
+* Add srdf for allegro
+* Contributors: Aina
+
 1.0.4 (2025-02-05)
 ------------------
 * Set robot_description_timeout to 60 seconds
