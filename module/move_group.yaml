@@ -1,0 +1,7 @@
+move_group:
+  launch: "pal_sea_arm_moveit_config move_group.launch.py 
+           arm_type:=@arm_type@
+           end_effector:=@end_effector@
+           ft_sensor:=@ft_sensor@
+           wrist_model:=@wrist_model@"
+
