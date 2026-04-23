@@ -2,8 +2,8 @@
 Changelog for package pal_sea_arm_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.0.6 (2026-04-23)
+------------------
 * add module dependency
 * add module for movegroup
 * add no-ee_ati yaml and xacro
