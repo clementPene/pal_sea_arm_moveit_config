@@ -2,6 +2,13 @@
 Changelog for package pal_sea_arm_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* add module dependency
+* add module for movegroup
+* add no-ee_ati yaml and xacro
+* Contributors: ileniaperrella, susannamastromauro
+
 1.0.5 (2025-04-17)
 ------------------
 * Add coupler link on disable collision for allegro
