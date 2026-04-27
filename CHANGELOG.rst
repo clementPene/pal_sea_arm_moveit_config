@@ -2,6 +2,11 @@
 Changelog for package pal_sea_arm_moveit_config
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Fix prefix module move_group
+* Contributors: Aina
+
 1.0.6 (2026-04-23)
 ------------------
 * add module dependency
