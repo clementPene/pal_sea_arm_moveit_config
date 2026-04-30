@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<robot name="pal_sea_arm" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find pal_sea_arm_moveit_config)/config/srdf/disable_collisions/pal_sea_arm_no-ee.srdf.xacro" />
+  <xacro:include filename="$(find pal_sea_arm_moveit_config)/config/srdf/disable_collisions/pal-atc.srdf.xacro" />
+    <disable_collisions link1="arm_1_link" link2="arm_7_link" reason="Never"/>
+    <disable_collisions link1="arm_2_link" link2="gripper_pal_atc_base_link" reason="Never"/>
+    <disable_collisions link1="arm_2_link" link2="gripper_tool_mount" reason="Never"/>
+    <disable_collisions link1="arm_3_link" link2="gripper_pal_atc_base_link" reason="Never"/>
+    <disable_collisions link1="arm_3_link" link2="gripper_tool_holder" reason="Never"/>
+    <disable_collisions link1="arm_3_link" link2="gripper_tool_mount" reason="Never"/>
+    <disable_collisions link1="arm_4_link" link2="gripper_pal_atc_base_link" reason="Never"/>
+    <disable_collisions link1="arm_4_link" link2="gripper_tool_holder" reason="Never"/>
+    <disable_collisions link1="arm_4_link" link2="gripper_tool_mount" reason="Never"/>
+    <disable_collisions link1="arm_5_link" link2="gripper_pal_atc_base_link" reason="Never"/>
+    <disable_collisions link1="arm_5_link" link2="gripper_tool_holder" reason="Never"/>
+    <disable_collisions link1="arm_5_link" link2="gripper_tool_mount" reason="Never"/>
+    <disable_collisions link1="arm_6_link" link2="gripper_pal_atc_base_link" reason="Never"/>
+    <disable_collisions link1="arm_6_link" link2="gripper_tool_holder" reason="Never"/>
+    <disable_collisions link1="arm_6_link" link2="gripper_tool_mount" reason="Never"/>
+    <disable_collisions link1="arm_7_link" link2="arm_root_link" reason="Never"/>
+    <disable_collisions link1="arm_7_link" link2="gripper_pal_atc_base_link" reason="Never"/>
+    <disable_collisions link1="arm_7_link" link2="gripper_tool_holder" reason="Never"/>
+    <disable_collisions link1="arm_7_link" link2="gripper_tool_mount" reason="Never"/>
+    <disable_collisions link1="arm_tool_link" link2="gripper_pal_atc_base_link" reason="Adjacent"/>
+    <disable_collisions link1="arm_tool_link" link2="gripper_tool_holder" reason="Never"/>
+    <disable_collisions link1="arm_tool_link" link2="gripper_tool_mount" reason="Never"/>
+    <disable_collisions link1="gripper_pal_atc_base_link" link2="world" reason="Never"/>
+    <disable_collisions link1="gripper_tool_holder" link2="world" reason="Never"/>
+    <disable_collisions link1="gripper_tool_mount" link2="world" reason="Never"/>
+</robot>

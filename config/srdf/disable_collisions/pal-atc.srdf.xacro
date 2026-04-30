@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<robot name="pal_sea_arm" xmlns:xacro="http://ros.org/wiki/xacro">
+    <disable_collisions link1="gripper_pal_atc_base_link" link2="gripper_tool_holder" reason="Never"/>
+    <disable_collisions link1="gripper_pal_atc_base_link" link2="gripper_tool_mount" reason="Adjacent"/>
+    <disable_collisions link1="gripper_tool_holder" link2="gripper_tool_mount" reason="Adjacent"/>
+</robot>
